@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Card from './Card';
+import VisibilityObserver from './VisibilityObserver';
 
-function App() {
+const App = () => {
+  const [data, setData] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <div style={{
+        maxWidth: '400px',
+        maxHeight: '300px',
+        overflow: 'scroll',
+        padding: '1rem',
+        border: '1px solid black',
+        margin: '1rem 2rem'
+      }}>
+        {
+          data.map(item => {
+            return <Card id={item} key={item} />
+          })
+        }
+      </div>
     </div>
-  );
+  )
 }
+
 
 export default App;
